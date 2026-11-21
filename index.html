@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080713"><title>NEON FALZZ TOOLS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+<div class="ambient a1"></div><div class="ambient a2"></div>
+<div id="loginScreen" class="login-wrap">
+  <div class="login-card glass">
+    <div class="brand-mark">NF<span>✦</span></div>
+    <p class="eyebrow">YOUR DIGITAL TOOLKIT</p>
+    <h1>NEON <span>FALZZ</span><br>TOOLS</h1>
+    <p class="muted center">Satu dashboard. Banyak kemungkinan.</p>
+    <div id="googleButton" class="google-slot"></div>
+    <p id="loginHint" class="tiny center">Login dengan Google untuk membuka semua tools.</p>
+    <div class="login-line"></div><p class="tiny center">SECURE SESSION · NEON EXPERIENCE</p>
+  </div>
+</div>
+<div id="app" class="hidden">
+  <aside class="sidebar glass">
+    <div class="brand"><div class="brand-mark small">NF<span>✦</span></div><div><b>NEON FALZZ</b><small>TOOLS PANEL</small></div></div>
+    <div class="nav-label">WORKSPACE</div>
+    <button class="nav active" data-page="overview"><span>⌂</span> Overview</button>
+    <button class="nav" data-page="mail"><span>✉</span> Temp Mail</button>
+    <button class="nav" data-page="tiktok"><span>▷</span> TikTok Downloader</button>
+    <div class="side-bottom"><div class="status-dot"></div><span>ALL SYSTEMS READY</span></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><p class="eyebrow">NEON WORKSPACE / <span id="crumb">OVERVIEW</span></p><h2 id="pageTitle">Dashboard</h2></div>
+      <div class="user-chip"><img id="avatar" src="" alt=""><div><b id="userName">User</b><small id="userEmail"></small></div><button id="logout" class="logout" title="Logout">↗</button></div>
+    </header>
+    <section id="overviewPage" class="page">
+      <div class="hero glass"><div class="hero-copy"><p class="eyebrow">WELCOME TO YOUR CONTROL CENTER</p><h1>MAKE IT<br><span>GLOW.</span></h1><p class="muted">Tools praktis dengan tampilan futuristik. Pilih fitur dan mulai bekerja.</p><button class="primary" data-goto="mail">Explore tools <span>→</span></button></div><div class="orb"><div class="orb-core">NF</div></div><div class="hero-grid"></div></div>
+      <div class="section-head"><div><p class="eyebrow">AVAILABLE MODULES</p><h3>Tools collection</h3></div><span class="count">02 MODULES</span></div>
+      <div class="tool-grid">
+        <article class="tool-card glass"><div class="tool-icon purple">✉</div><span class="tag">EMAIL UTILITY</span><h3>Temporary Mail</h3><p class="muted">Buat alamat email sementara dan cek pesan masuk.</p><button class="text-btn" data-goto="mail">Open tool <b>↗</b></button></article>
+        <article class="tool-card glass"><div class="tool-icon cyan">▷</div><span class="tag">VIDEO UTILITY</span><h3>TikTok Downloader</h3><p class="muted">Ambil tautan unduhan dari video TikTok publik.</p><button class="text-btn" data-goto="tiktok">Open tool <b>↗</b></button></article>
+      </div>
+      <div class="notice">✦ <span>Gunakan email sementara hanya untuk kebutuhan non-sensitif. Jangan gunakan untuk akun penting atau pemulihan akun.</span></div>
+    </section>
+    <section id="mailPage" class="page hidden">
+      <div class="page-intro"><div class="tool-icon purple">✉</div><div><p class="eyebrow">EMAIL UTILITY</p><h2>Temporary Mail</h2><p class="muted">Alamat inbox sementara untuk menerima pesan singkat.</p></div></div>
+      <div class="panel glass"><div class="panel-head"><div><h3>Your temporary inbox</h3><p class="muted tiny">Inbox publik dapat diakses siapa pun yang mengetahui alamatnya.</p></div><span class="live"><i></i> LIVE</span></div>
+        <div class="address-row"><input id="mailAddress" readonly placeholder="Klik Generate Email untuk membuat alamat"><button id="copyMail" class="secondary">Copy</button></div>
+        <div class="actions"><button id="generateMail" class="primary">＋ Generate Email</button><button id="refreshMail" class="secondary">↻ Refresh inbox</button></div>
+        <div id="mailStatus" class="status-text"></div>
+        <div class="inbox-head"><b>Inbox messages</b><span id="mailCount">0 messages</span></div><div id="messages" class="messages empty">Belum ada pesan. Generate alamat email lalu refresh inbox.</div>
+      </div>
+    </section>
+    <section id="tiktokPage" class="page hidden">
+      <div class="page-intro"><div class="tool-icon cyan">▷</div><div><p class="eyebrow">VIDEO UTILITY</p><h2>TikTok Downloader</h2><p class="muted">Proses tautan video publik yang dapat diakses.</p></div></div>
+      <div class="panel glass">
+        <div class="panel-head"><div><h3>Video link processor</h3><p class="muted tiny">Pastikan kamu memiliki hak atau izin untuk menyimpan video.</p></div><span class="live"><i></i> READY</span></div>
+        <label for="tiktokUrl">TIKTOK VIDEO URL</label><div class="address-row"><input id="tiktokUrl" type="url" placeholder="https://www.tiktok.com/@user/video/..."><button id="pasteTikTok" class="secondary">Paste</button></div>
+        <button id="downloadTikTok" class="primary wide">Process video <span>→</span></button><div id="tiktokStatus" class="status-text"></div>
+        <div id="downloadResult" class="result hidden"><div class="result-icon">✓</div><div><b>Link siap diproses</b><p class="muted tiny">Buka tautan unduhan dari penyedia layanan.</p><a id="downloadLink" target="_blank" rel="noopener noreferrer">Open download link ↗</a></div></div>
+      </div>
+      <div class="notice">ⓘ <span>Downloader bergantung pada layanan pihak ketiga. Video privat, konten terbatas, atau video yang tidak tersedia untuk publik tidak didukung.</span></div>
+    </section>
+    <footer>NEON FALZZ TOOLS <span>•</span> BUILT FOR YOUR WORKFLOW</footer>
+  </main>
+</div>
+<div id="toast" class="toast"></div>
+<script src="/app.js"></script>
+</body></html>
